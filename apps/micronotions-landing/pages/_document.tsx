@@ -1,37 +1,20 @@
-import { defaultMantineEmotionCache } from '@mantine/core';
-import { utils } from '@micro-notion/shared-data';
-import Document, { DocumentContext } from 'next/document';
-import React from 'react';
+import { createGetInitialProps } from '@mantine/next';
+import Document, { Head, Html, Main, NextScript } from 'next/document';
 
-let renders = 0;
+const getInitialProps = createGetInitialProps();
 
-export default class AppDocument extends Document {
-  static async getInitialProps(ctx: DocumentContext) {
-    const initialProps = await Document.getInitialProps(ctx);
+export default class _Document extends Document {
+  static getInitialProps = getInitialProps;
 
-    const styles = [initialProps.styles];
-
-    // This does not work with SSR, but should be fine with SSG to include the styles only when generating the static pages
-    if (!renders) {
-      styles.push(
-        <style
-          key="mantine-styles"
-          dangerouslySetInnerHTML={{
-            __html: utils
-              .objectEntries(defaultMantineEmotionCache.registered)
-              .reduce(
-                (acc, [className, styles]) => `${acc}.${className}{${styles}}`,
-                ''
-              ),
-          }}
-        />
-      );
-    }
-    renders += 1;
-
-    return {
-      ...initialProps,
-      styles,
-    };
+  render() {
+    return (
+      <Html>
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
   }
 }
