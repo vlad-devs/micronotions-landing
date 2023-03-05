@@ -1,0 +1,122 @@
+/* Sets all text colors */
+#micronotion-widget {
+  @apply text-stone-900 dark:text-gray-300;
+  box-shadow: inset theme(colors.notion.shadow) 0px 0px 0px 1px,
+    inset theme(colors.notion.shadow) 0px 2px 4px;
+}
+
+/* DARK MODE 🌚👇 */
+html.dark #micronotion-widget {
+  box-shadow: theme(colors[notion-dark].shadow) 0px 0px 0px 1px,
+    theme(colors[notion-dark].shadow) 0px 2px 4px;
+}
+/* DARK MODE 🌚👆 */
+
+/* Sets all dropown icons' colors, etc */
+#micronotion-widget svg {
+  @apply fill-notion-text-secondary text-notion-text-secondary
+  dark:fill-notion-dark-text-secondary dark:text-notion-dark-text-secondary !important;
+}
+
+/******************
+*   👇 Buttons    *
+******************/
+
+.notion-button {
+  @apply bg-notion-blue-btn hover:bg-notion-blue-btn-hover
+  disabled:bg-notion-highlight/50 
+  disabled:text-notion-text-secondary/75
+  disabled:dark:text-notion-dark-text-secondary
+  active:bg-notion-blue-btn-pressed text-white !important;
+}
+
+.button-xs {
+  @apply w-fit p-1 text-xs rounded-[3px]
+  inline whitespace-nowrap !important;
+}
+
+.button-sm {
+  @apply w-32 py-0 px-1 text-sm rounded-[3px] !important;
+}
+
+.button {
+  @apply p-3 shadow-md rounded-md text-lg bg-emerald-300 
+  text-stone-600 hover:bg-emerald-600 hover:text-white w-full;
+}
+
+.react-select__control,
+.react-select__menu,
+.widget-box {
+  @apply bg-notion-sidebar dark:bg-notion-dark-box
+  border-notion-text-secondary dark:border-notion-dark-text-secondary !important;
+}
+
+.react-select__control,
+.hoverable-widget-box {
+  @apply hover:bg-notion-highlight hover:dark:bg-notion-dark-highlight !important;
+}
+
+/* Text colors for the tags and the input */
+.react-select__control,
+.react-select__menu,
+.react-select__input,
+.widget-box-text {
+  @apply text-sm text-notion-text dark:text-notion-dark-text !important;
+}
+
+.react-select__indicator-separator {
+  @apply bg-transparent !important;
+}
+
+/* Chart styles */
+.chart-axis {
+  @apply dark:fill-notion-dark-text fill-notion-text font-sans !important;
+}
+
+/****************************************
+*    👇 Flipping card functionality     *
+****************************************/
+
+.flip-card {
+  @apply w-full h-full;
+  perspective: 1000px; /* 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  @apply relative w-full h-full text-center flex flex-col justify-center;
+
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Flip the container */
+.flipped.flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Hide the backface */
+.flip-card-front,
+.flip-card-back {
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.flipped .flip-card-front {
+  @apply opacity-0;
+}
+
+.flip-card-front {
+  @apply opacity-100;
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Style the back side */
+.flip-card-back {
+  @apply top-0 w-full h-full;
+  transform: rotateY(180deg);
+}
+
+/****************************************
+*    👆 Flipping card functionality     *
+****************************************/

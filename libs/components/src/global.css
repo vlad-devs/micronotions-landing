@@ -1,0 +1,11 @@
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-transparent !important;
+}
+
+html {
+  -webkit-print-color-scheme: unset !important;
+  color-scheme: unset !important;
+}

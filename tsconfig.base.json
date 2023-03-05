@@ -1,0 +1,33 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@micro-notion/components": ["libs/components/src/index.ts"],
+      "@micro-notion/firebase": ["libs/firebase/src/index.ts"],
+      "@micro-notion/firebase-components": [
+        "libs/firebase-components/src/index.ts"
+      ],
+      "@micro-notion/hooks-and-contexts": [
+        "libs/hooks-and-contexts/src/index.ts"
+      ],
+      "@micro-notion/notion-client": ["libs/notion-client/src/index.ts"],
+      "@micro-notion/notion-oauth": ["libs/notion-oauth/src/index.ts"],
+      "@micro-notion/notion-widgets": ["libs/notion-widgets/src/index.ts"],
+      "@micro-notion/shared-data": ["libs/shared-data/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
